@@ -1,9 +1,14 @@
 <h4>Novo usuário</h4>
-<form class="form mt-4">
+<form class="form mt-4" [formGroup]="novoUsuarioForm" (submit)="cadastrar()" >
   <div class="form-group">
-    <input class="form-control" type="text" placeholder="Nome de usuário"><br>
-    <input class="form-control" type="text" placeholder="Senha de usuário"><br>
-    <button type="submit" class="btn btn-primary btn-lg w-100">Cadastrar</button>
+    <input class="form-control mb-2" type="text" placeholder="E-mail" formControlName="email" [ngClass]="novoUsuarioForm.get('email')?.errors?.required && novoUsuarioForm.get('email')?.touched && 'is-invalid'">
+    <app-mensagem *ngIf="novoUsuarioForm.get('email')?.errors?.required && novoUsuarioForm.get('email')?.touched" mensagem="E-mail obrigatorio"></app-mensagem>
+    <app-mensagem *ngIf="novoUsuarioForm.get('email')?.errors?.email && novoUsuarioForm.get('email')?.touched" mensagem="E-mail formato incorreto"></app-mensagem>
+    <input class="form-control mb-2" type="text" placeholder="Nome completo" formControlName="fullName">
+    <input class="form-control mb-2" type="text" placeholder="Nome de usuário" formControlName="userName">
+    <app-mensagem *ngIf="novoUsuarioForm.get('userName')?.errors?.minusculo && novoUsuarioForm.get('userName')?.touched" mensagem="O usuário deve ter letras minúsculas."></app-mensagem>
+    <input class="form-control mb-2" type="text" placeholder="Senha de usuário" formControlName="password">
+    <button class="btn btn-primary btn-lg w-100">Cadastrar</button>
   </div>
 </form>
 <br>

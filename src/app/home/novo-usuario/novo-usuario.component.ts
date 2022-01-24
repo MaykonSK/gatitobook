@@ -1,4 +1,8 @@
+import { NovoUsuarioService } from './novo-usuario.service';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NovoUsuarioInterface } from './novo-usuario-interface';
+import { minusculoValidator } from './minusculo-validator';
 
 @Component({
   selector: 'app-novo-usuario',
@@ -7,9 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NovoUsuarioComponent implements OnInit {
 
-  constructor() { }
+  novoUsuarioForm: FormGroup;
+  teste: boolean = false;
+
+  constructor(private formBuilder: FormBuilder, private novoUsuarioService: NovoUsuarioService) { }
 
   ngOnInit() {
+    this.novoUsuarioForm = this.formBuilder.group({
+      //validators serve para validar os campos
+      email: ['', [Validators.required, Validators.email]],
+      fullName: ['', [Validators.required, Validators.minLength(4)]],
+      userName: ['', [minusculoValidator]],
+      password: ['']
+    })
   }
+
+  cadastrar() {
+    const novoUsuario = this.novoUsuarioForm.getRawValue() as NovoUsuarioInterface;
+    console.log(novoUsuario)
+  }
+
 
 }
