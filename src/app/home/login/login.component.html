@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="card-header">
+    <h2>Bem vindo!</h2>
+  </div>
+  <div class="card-body">
+    <form class="form-group" (ngSubmit)="login()">
+      <!-- name esta recuperando os dados e passando para ngmodel -->
+      <input class="form-control" type="text" placeholder="Usuário" [(ngModel)]="usuario" name="usuario"><br>
+      <input class="form-control" type="password" placeholder="Senha" [(ngModel)]="senha" name="senha">
+      <app-mensagem *ngIf="mensagemErro" mensagem="Dados incorretos"></app-mensagem><br>
+      <div *ngIf="usuario.length == 0 || senha.length == 0; else ativar">
+        <button type="submit" class="btn btn-success btn-lg btn-block" disabled>Login</button><br><br>
+      </div>
+      <ng-template #ativar>
+        <button type="submit" class="btn btn-success btn-lg btn-block">Login</button><br><br>
+      </ng-template>
+      <p>Não é cadastrado? cadastre-se <a routerLink="novousuario">aqui</a></p>
+    </form>
+  </div>
+</div>
