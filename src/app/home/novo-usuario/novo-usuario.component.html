@@ -9,8 +9,9 @@
     <app-mensagem *ngIf="novoUsuarioForm.get('userName')?.errors?.minusculo && novoUsuarioForm.get('userName')?.touched" mensagem="O usuário deve ter letras minúsculas."></app-mensagem>
     <app-mensagem *ngIf="novoUsuarioForm.get('userName')?.errors?.usuarioExistente" mensagem="Usuário já existe"></app-mensagem>
     <input class="form-control mb-2" type="text" placeholder="Senha de usuário" formControlName="password">
+    <app-mensagem *ngIf="novoUsuarioForm.errors?.senhaIgualUsuario" mensagem="Senha deve ser diferente do usuário"></app-mensagem>
     <button class="btn btn-primary btn-lg w-100">Cadastrar</button>
   </div>
 </form>
 <br>
-<p>Já é um usuário? <a routerLink="#">aqui</a></p>
+<p>Já é um usuário? <a routerLink="">voltar</a></p>
