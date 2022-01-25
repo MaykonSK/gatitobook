@@ -1,4 +1,6 @@
+import { Usuario } from './usuario/usuario';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 const KEY = 'token'
 
@@ -26,10 +28,7 @@ export class TokenService {
 
   possuiToken() {
     //retorna boleano
-    //return !! this.retornaToken();
-    if (this.retornaToken().length > 1) {
-      this.temToken = true;
-    }
+    return !! this.retornaToken();
   }
 
 }
