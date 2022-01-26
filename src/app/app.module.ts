@@ -1,3 +1,4 @@
+import { CabecalhoModule } from './componentes/cabecalho/cabecalho.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -12,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CabecalhoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

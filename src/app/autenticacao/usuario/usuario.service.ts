@@ -26,7 +26,7 @@ export class UsuarioService {
     this.usuarioSubject.next(usuario);
   }
 
-  retornaSubject() {
+  retornaUsuario() {
     return this.usuarioSubject.asObservable();
   }
 

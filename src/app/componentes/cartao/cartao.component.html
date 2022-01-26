@@ -1,0 +1,7 @@
+<div class="card text-center">
+  <div class="card-header" *ngIf="titulo">{{titulo}}</div>
+  <div class="card-body">
+    <!-- ng-content permite inserir outro component dentro dele -->
+    <ng-content></ng-content>
+  </div>
+</div>
